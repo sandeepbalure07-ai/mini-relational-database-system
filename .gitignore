@@ -1,0 +1,12 @@
+# Compiles binaries
+*.exe
+*.o
+*.obj
+mini_db
+
+# VS Code directory
+.vscode/
+
+# Local database files generated at runtime
+data/*.db
+data/*.csv
