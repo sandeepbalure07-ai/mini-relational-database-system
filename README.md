@@ -1,6 +1,8 @@
-# Mini Database Engine
+Mini Relational Database System
 
-A high-performance, single-node relational database engine built entirely from scratch in C++. This project demonstrates core database engine internals—including query parsing, schema design, file system persistence, CRUD query processing, and relational primary key validation—encapsulated in clean Object-Oriented C++ code.
+# Overview
+
+Mini Relational Database System is a lightweight SQL-like database engine developed in C++. The system supports table creation, record insertion, querying, updating, deletion, and persistent storage using CSV files. The project demonstrates object-oriented design, file handling, query parsing, and core database management concepts.
 
 ---
 
