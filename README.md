@@ -1,4 +1,4 @@
-Mini Relational Database System
+# Mini Relational Database System
 
 # Overview
 
@@ -26,65 +26,51 @@ Mini Relational Database System is a lightweight SQL-like database engine develo
 * **Visual Grid Layout**: Automatically calculates columns width and formats queries into a aligned ASCII table border.
 
 ---
+## Supported Commands
 
-## 🛠️ Project Folder & File Layout
+CREATE TABLE students(id,name,age)
 
-Create the files in your VS Code workspace using the following structure:
+INSERT INTO students VALUES(1,Sandeep,21)
 
-```text
-MiniDatabaseEngine/
+SELECT * FROM students
+
+UPDATE students SET age=22 WHERE id=1
+
+DELETE FROM students WHERE id=1
+
+DROP TABLE students
+
+EXIT
+
+## Project Structure
+
+MiniDataBaseEngine/
 │
 ├── src/
-│   ├── main.cpp              # Interactive query command loop and execution timer
-│   ├── Database.h            # Header for Database orchestrator
-│   ├── Database.cpp          # Query router, table loader, and ASCII grid formatter
-│   ├── Table.h               # Header for Table schema/record structures
-│   ├── Table.cpp             # CRUD implementations and primary key checks
-│   ├── Record.h              # Header for Record (row) representation
-│   ├── Record.cpp            # Row serialisation/deserialisation (CSV-compliant)
-│   ├── QueryParser.h         # Header for Query parser
-│   ├── QueryParser.cpp       # Case-insensitive SQL regex parser
-│   ├── FileManager.h         # Header for File IO Manager
-│   └── FileManager.cpp       # Disk persistence (directory scan, read, write, drop)
+│   ├── main.cpp
+│   ├── Database.cpp
+│   ├── Database.h
+│   ├── Table.cpp
+│   ├── Table.h
+│   ├── Record.cpp
+│   ├── Record.h
+│   ├── QueryParser.cpp
+│   ├── QueryParser.h
+│   ├── FileManager.cpp
+│   └── FileManager.h
 │
-├── data/                     # Autosaved database files (*.csv)
-├── .gitignore                # Git excludes (.exe, .o, data/*.csv)
-└── README.md                 # Technical documentation & project guide
-```
-
----
+├── data/
+│
+├── screenshots/
+│
+├── README.md
+└── .gitignore
 
 ## ⚙️ Compilation & Running
 
 Make sure you have `g++` (GCC 8.0+) supporting C++17 installed.
 
-### 1. Compile the Source Code
-Open your terminal in VS Code at the project root directory (`MiniDatabaseEngine/`) and compile:
 
-```powershell
-# Windows PowerShell
-g++ -std=c++17 -Wall -Wextra src/*.cpp -o mini_db.exe
-```
-
-```bash
-# macOS / Linux Terminal
-g++ -std=c++17 -Wall -Wextra src/*.cpp -o mini_db
-```
-
-### 2. Run the Engine
-Execute the compiled binary:
-
-```powershell
-# Windows
-.\mini_db.exe
-```
-
-```bash
-# macOS / Linux
-./mini_db
-```
-
----
 
 ## 🔍 Supported SQL-Like Dialect & Examples
 
@@ -153,43 +139,7 @@ sequenceDiagram
     Note over FM: Writes to data/students.csv
     FM-->>DB: Save status
     DB-->>CLI: Return OK message + time elapsed
-```
 
----
 
-## 💼 SDE Resume Focus & Impact Points
 
-If you are putting this project on your software engineering resume, showcase the technical details with these bullet points:
 
-* **Designed and engineered** a lightweight, single-node relational database engine from scratch in C++ using Object-Oriented design, achieving sub-millisecond query execution latency (`<0.5ms`) for memory-cached operations.
-* **Implemented an in-memory transactional storage manager** using STL containers (`std::vector`, `std::unordered_map`, `std::unordered_set`), maintaining custom primary key uniqueness constraints on insertions/updates with $O(1)$ lookup time complexity.
-* **Developed a robust CSV parsing and serialization engine** handling complex strings (escaping commas, newline characters, and double-quotes), ensuring complete data integrity and compliance across application restarts.
-* **Wrote a case-insensitive SQL Query Lexer/Parser** utilizing regular expressions, mapping commands to structures to validate query syntax and handle errors gracefully without crashes.
-
----
-
-## 🐙 Push to GitHub Commands
-
-To publish this project to GitHub:
-
-1. **Initialize Git Repository**:
-   ```bash
-   git init
-   ```
-2. **Add Files**:
-   ```bash
-   git add .
-   ```
-3. **Commit Code**:
-   ```bash
-   git commit -m "Initial commit: Complete C++ Mini Database Engine"
-   ```
-4. **Create Repository on GitHub** (e.g. named `MiniDatabaseEngine`) and link it:
-   ```bash
-   git branch -M main
-   git remote add origin https://github.com/YOUR_GITHUB_USERNAME/MiniDatabaseEngine.git
-   ```
-5. **Push Code**:
-   ```bash
-   git push -u origin main
-   ```
