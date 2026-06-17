@@ -6,6 +6,15 @@ Mini Relational Database System is a lightweight SQL-like database engine develo
 
 ---
 
+## Technologies Used
+
+- C++
+- Object-Oriented Programming (OOP)
+- STL
+- File Handling
+- Regular Expressions (Regex)
+- CSV Storage
+
 ## 🚀 Key Features
 
 * **Dynamic Table Creation**: Create custom tables with user-defined columns on the fly.
